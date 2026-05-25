@@ -1,0 +1,138 @@
+.note-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-radius: 4px 4px 12px 4px;
+  box-sizing: border-box;
+  touch-action: none;
+  user-select: none;
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+  outline: none;
+}
+
+.note-card:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.note-card--selected {
+  transform: translateY(-2px);
+}
+
+.note-card--dragging,
+.note-card--resizing {
+  transition: none;
+  cursor: grabbing;
+}
+
+.note-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.5rem;
+  cursor: grab;
+  flex-shrink: 0;
+  min-height: 28px;
+}
+
+.note-card__header:active {
+  cursor: grabbing;
+}
+
+.note-card__color-btn {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.note-card__color-btn:hover {
+  transform: scale(1.1);
+}
+
+.note-card__color-btn:focus-visible {
+  outline: 2px solid #1e293b;
+  outline-offset: 2px;
+}
+
+.note-card__grip {
+  flex: 1;
+  height: 6px;
+  margin-left: 0.5rem;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.12) 0,
+    rgba(0, 0, 0, 0.12) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.5;
+}
+
+.note-card__textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0.35rem 0.65rem 0.65rem;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #1e293b;
+  cursor: text;
+  user-select: text;
+  outline: none;
+}
+
+.note-card__textarea::placeholder {
+  color: rgba(30, 41, 59, 0.45);
+}
+
+.note-card__resize {
+  position: absolute;
+  touch-action: none;
+}
+
+.note-card__resize--e {
+  top: 28px;
+  right: -4px;
+  width: 10px;
+  bottom: 12px;
+  cursor: ew-resize;
+}
+
+.note-card__resize--s {
+  left: 8px;
+  right: 12px;
+  bottom: -4px;
+  height: 10px;
+  cursor: ns-resize;
+}
+
+.note-card__resize--se {
+  right: -2px;
+  bottom: -2px;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+}
+
+body.is-interacting {
+  cursor: grabbing;
+}
+
+body.is-interacting .note-card__textarea {
+  pointer-events: none;
+}

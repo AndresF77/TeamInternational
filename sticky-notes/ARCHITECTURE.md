@@ -1,0 +1,9 @@
+# Architecture Description
+
+The Sticky Notes application is a single-page React + TypeScript client built with Vite. Responsibility is split into layers: **models** define the `Note` shape and constants; **utils** hold pure functions for geometry, IDs, colors, and storage serialization; **services** expose an asynchronous mock REST API over `localStorage`; **hooks** encapsulate drag, resize, persistence, and note CRUD; **components** render the board, notes, toolbar, trash, and empty state.
+
+State is centralized in `useNotes`, which composes `useLocalStorage` for immediate persistence and debounces writes through `notesApi`. The `Board` component is the composition root: it measures viewport and trash geometry with `ResizeObserver`, passes stable callbacks to memoized `NoteCard` children, and coordinates selection and trash feedback. Notes are created with explicit `x`, `y`, `width`, and `height` (centered via toolbar, or at the pointer via double-click on the board).
+
+Drag and resize are implemented without third-party libraries. `useDrag` and `useResize` use pointer capture, `requestAnimationFrame` to batch updates, and window-level `pointermove` / `pointerup` listeners that are registered only during an active interaction and removed on cleanup. `NoteCard` is wrapped in `React.memo` with a custom props comparator so only the note being moved or edited re-renders. Trash hit-testing converts DOM rectangles into board-relative coordinates so overlap detection matches note positioning.
+
+Persistence restores notes on load via the mock API, while `useLocalStorage` keeps the UI responsive. Optional features—editable text, z-index on selection, multiple colors, and keyboard delete—are integrated without additional global state libraries, keeping the codebase small and suitable for technical discussion in an interview.

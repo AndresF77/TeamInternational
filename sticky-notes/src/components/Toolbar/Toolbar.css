@@ -1,0 +1,55 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  z-index: 1000;
+  flex-shrink: 0;
+}
+
+.toolbar__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.toolbar__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.toolbar__count {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.toolbar__add-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.toolbar__add-btn:hover {
+  background: #1d4ed8;
+}
+
+.toolbar__add-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.toolbar__add-btn:active {
+  transform: scale(0.98);
+}

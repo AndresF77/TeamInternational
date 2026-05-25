@@ -1,0 +1,50 @@
+.trash-zone {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 14px;
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  color: #64748b;
+  opacity: 0.75;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  z-index: 2000;
+}
+
+.trash-zone--dragging {
+  opacity: 1;
+  border-color: #94a3b8;
+}
+
+.trash-zone--drag-over {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #dc2626;
+  opacity: 1;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.trash-zone__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.trash-zone__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}

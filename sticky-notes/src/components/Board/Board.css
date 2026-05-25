@@ -1,0 +1,31 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-width: 1024px;
+  min-height: 768px;
+  height: 100vh;
+  background: #eef2f6;
+}
+
+.board {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+}
+
+.board__loading {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  z-index: 3000;
+}
