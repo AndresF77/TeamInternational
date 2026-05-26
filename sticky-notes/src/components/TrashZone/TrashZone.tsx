@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import './TrashZone.css';
 
 interface TrashZoneProps {
@@ -5,7 +6,8 @@ interface TrashZoneProps {
   isDragOver: boolean;
 }
 
-export function TrashZone({ isDragging, isDragOver }: TrashZoneProps) {
+export const TrashZone = forwardRef<HTMLDivElement, TrashZoneProps>(
+  function TrashZone({ isDragging, isDragOver }, ref) {
   const className = [
     'trash-zone',
     isDragging ? 'trash-zone--dragging' : '',
@@ -16,6 +18,7 @@ export function TrashZone({ isDragging, isDragOver }: TrashZoneProps) {
 
   return (
     <div
+      ref={ref}
       className={className}
       role="region"
       aria-label="Trash — drop a note here to delete"
@@ -34,4 +37,5 @@ export function TrashZone({ isDragging, isDragOver }: TrashZoneProps) {
       <span className="trash-zone__label">Drop to delete</span>
     </div>
   );
-}
+  },
+);

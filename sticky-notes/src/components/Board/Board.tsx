@@ -201,9 +201,11 @@ export function Board() {
           />
         ))}
 
-        <div ref={trashRef}>
-          <TrashZone isDragOver={isOverTrash} isDragging={draggingNoteId !== null} />
-        </div>
+        <TrashZone
+          ref={trashRef}
+          isDragOver={isOverTrash}
+          isDragging={draggingNoteId !== null}
+        />
       </div>
     </div>
   );

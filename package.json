@@ -1,0 +1,11 @@
+{
+  "name": "team-international-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix sticky-notes",
+    "build": "npm run build --prefix sticky-notes",
+    "preview": "npm run preview --prefix sticky-notes",
+    "test": "npm test --prefix sticky-notes",
+    "install:app": "npm install --prefix sticky-notes"
+  }
+}
