@@ -195,13 +195,17 @@ function NoteCardComponent({
         <button
           type="button"
           className="note-card__color-btn"
+          style={{
+            backgroundColor: colorStyle.border,
+            borderColor: colorStyle.border,
+          }}
           onClick={(e) => {
             e.stopPropagation();
             onColorCycle(note.id);
           }}
           onPointerDown={(e) => e.stopPropagation()}
-          aria-label="Cycle note color"
-          title="Change color"
+          aria-label={`Cycle note color (currently ${note.color})`}
+          title={`Change color (${note.color})`}
         />
         <span className="note-card__grip" aria-hidden="true" />
       </div>
